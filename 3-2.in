@@ -1,0 +1,12 @@
+File.open('3.in') do |file|
+  sum = 0
+  file.each do |line|
+    chars = line.split('')
+
+    regex = /mul\((?<first>\d{1,3}),(?<second>\d{1,3})\)/
+    line.scan(regex).each do |m|
+      sum += m[0].to_i * m[1].to_i
+    end
+  end
+  puts sum
+end
